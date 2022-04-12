@@ -7,7 +7,7 @@ public:
 private:
 	Tile board[100][100];
 	void check_board(Tile board[][]);
-	int check_surrounding(Tile* current_tile, int row, int col);
+	int check_surrounding(Tile board[][], int row, int col);
 };
 Board::Board()
 {
@@ -26,7 +26,7 @@ void Board::check_board(Tile board[][])
 	{
 		for (int j = 0; j < 100; j++)
 		{
-			int num_surrounding = check_surrounding(board[i][j], i, j);
+			int num_surrounding = check_surrounding(board, i, j);
 			if (num_surrounding == 0 && board[i][j].getFill == true)
 			{
 				newboard[i][j].setFill(false);
@@ -39,13 +39,12 @@ void Board::check_board(Tile board[][])
 	}
 }
 // check surrounding
-int Board::check_surrounding(Tile* current_tile, int row, int col)
+int Board::check_surrounding(Tile board[][], int row, int col)
 {
-	for (int i = 0; i < 3; i++)
+	int num_surrounding = 0;
+	if (board[row - 1][col - 1].getFill() == true)
 	{
-		for (int j = 0; j < 3; j++)
-		{
-			if ()
-		}
+
 	}
+	return num_surrounding;
 }
